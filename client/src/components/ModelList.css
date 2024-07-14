@@ -1,0 +1,61 @@
+.custom-card {
+    border-radius: 15px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 300px;
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-text strong {
+    font-weight: bold;
+  }
+  
+  .max-accessories, .available-count {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .max-accessories {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .available-count {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-card {
+      max-height: none; /* Remove max-height on smaller screens */
+    }
+  }
+  .selected-card {
+    border: 2px solid green;
+  }
+  .custom-card .card-body .select-model-button {
+    width: 100%;
+  }

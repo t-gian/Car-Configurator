@@ -1,0 +1,126 @@
+.custom-no-configuration {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.custom-no-configuration .custom-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.custom-no-configuration .custom-button:hover {
+  background-color: #218838;
+}
+.custom-card-model {
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+}
+
+.custom-card-model .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.custom-card-model .card-info {
+  margin-bottom: 10px;
+}
+
+.custom-card-model .badge {
+  font-size: 0.875rem;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+.custom-table {
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+}
+
+.custom-table th,
+.custom-table td {
+  vertical-align: middle;
+  padding: 0.75rem;
+}
+
+.custom-table th {
+  background-color: #e9ecef;
+}
+
+.custom-table .remove-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-table .remove-button .btn {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.total-cost-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  z-index: 1;
+  font-size: 1.5rem;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 0.25rem;
+}
+.accessories-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  z-index: 1;
+}
+.select-model-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.custom-border-yellow {
+  border: 1px solid rgb(255, 196, 0);
+}
+.custom-table {
+  width: 100%;
+  margin-top: 20px; 
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.remove-button {
+  display: flex;
+  justify-content: center;
+}
+.estimation-badge {
+  position: absolute;
+  top: 33px;
+  right: 20px;
+  z-index: 1;
+  font-size: 1.5rem;
+  background-color: #9dff00;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 0.25rem;
+}
+

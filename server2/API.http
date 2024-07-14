@@ -1,0 +1,84 @@
+# 1. Login to the main server for retrieving a valid token
+POST http://localhost:3001/api/sessions
+Content-Type: application/json
+
+{
+  "username": "mario.rossi@email.com",
+  "password": "admin"
+}
+###
+
+# 2. Check the current session (optional but useful for debugging)
+ # @name resp
+GET http://localhost:3001/api/sessions/current
+Authorization: Bearer {{resp.response.body.token}}
+###
+# 2. Get the authentication token
+# @name token
+GET http://localhost:3001/api/auth-token
+Authorization: Bearer {resp.response.body.token}}
+
+@auth_token = {{token.response.body.token}}
+
+###
+# 3. Test estimation API with valid accessories and token
+POST http://localhost:3002/api/estimation
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "accessories": ["bluetooth", "power windows", "air conditioning", "spare tire"]
+}
+
+###
+
+# 4. Test estimation API with missing accessories field
+POST http://localhost:3002/api/estimation
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{}
+
+###
+
+# 5. Test estimation API with empty accessories list
+POST http://localhost:3002/api/estimation
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "accessories": []
+}
+
+###
+
+# 6. Test estimation API with malformed request (string instead of array)
+POST http://localhost:3002/api/estimation
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "accessories": "bluetooth, power windows"
+}
+
+###
+
+# 7. Test estimation API with invalid token
+POST http://localhost:3002/api/estimation
+Content-Type: application/json
+Authorization: Bearer invalid_token
+
+{
+  "accessories": ["bluetooth", "power windows"]
+}
+
+###
+
+# 8. Test estimation API with expired token
+POST http://localhost:3002/api/estimation
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0dvb2RDbGllbnQiOjEsImF1dGhJZCI6MTIzNCwiaWF0IjoxNzIwNjA2NDI4LCJleHAiOjE3MjA2MDY0ODh9.eHNKpziFv_nfjzrENTsFtMbM5a6zqa6xbHeqpuZC8qs
+
+{
+  "accessories": ["radio", "bluetooth"]
+}

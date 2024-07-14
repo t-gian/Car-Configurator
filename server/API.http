@@ -1,0 +1,117 @@
+# Test APIs
+
+### Login
+POST http://localhost:3001/api/sessions
+Content-Type: application/json
+
+{
+  "username": "mario.rossi@email.com",
+  "password": "admin"
+}
+
+
+### Check if the user is logged in
+GET http://localhost:3001/api/sessions/current
+
+### Get all the car models
+GET http://localhost:3001/api/models
+
+### Get all the accessories
+GET http://localhost:3001/api/accessories
+
+### Get all the accessories with constraints (requires login)
+GET http://localhost:3001/api/accessories-with-constraints
+
+### Retrieve a car configuration by user id (requires login)
+GET http://localhost:3001/api/user/config/1
+
+### Save a new car configuration by user id (requires login)
+
+POST http://localhost:3001/api/user/config/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "carModelId": 2,
+  "accessories": [1,2,3]
+}
+
+### Update a car configuration by user id (requires login)
+## 200 on negative...
+PUT http://localhost:3001/api/user/config/
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "carModelId": 2,
+  "accessories": [1,2,3,4]
+}
+
+### Delete a car configuration by user id (requires login)
+DELETE http://localhost:3001/api/user/config/1
+
+
+### Get authentication token (requires login)
+GET http://localhost:3001/api/auth-token
+
+### Logout the current user
+DELETE http://localhost:3001/api/sessions/current
+
+
+### Login with incorrect password
+POST http://localhost:3001/api/sessions
+Content-Type: application/json
+
+{
+  "username": "user1@gmail.com",
+  "password": "aaabbb"
+}
+
+### Save a new car configuration with invalid fields
+PUT  http://localhost:3001/api/user/config/4
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "carModelId": 0,
+  "accessories": "1,2"
+}
+
+### Update car configuration with invalid accessories constraints
+
+POST http://localhost:3001/api/user/config/4
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "carModelId": 3,
+  "accessories": [1,1,1,1,1,1]
+}
+### Save new car configuration with invalid accessories constraints
+
+PUT http://localhost:3001/api/user/config/4
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "carModelId": 3,
+  "accessories": [1,3,7,8]
+}
+
+### Save a new car configuration with exceeding accessories for car model
+
+POST http://localhost:3001/api/user/config/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "carModelId": 2,
+  "accessories": [1,2,3,4,5,6]
+}
+
+### Delete a car configuration with incorrect user id
+DELETE http://localhost:3001/api/user/config/18
+
+
+### Retrieve car configuration for invalid user id
+GET http://localhost:3001/api/user/config/18
