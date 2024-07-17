@@ -155,6 +155,18 @@
 Clone the repository and run these commands:
   - Navigate to all the 3 different folders and run ```npm ci```
 
-  - Server 1 ```cd server; nodemon index.js```,
-  - Server 2 ```cd server2; nodemon index.js```;
-  - Client ```cd client; npm run dev```
+  - Server 1:
+    ```bash
+    cd server
+    nodemon index.js
+    ```
+  - Server 2:
+    ```bash
+    cd server2
+    nodemon index.js
+    ```
+  - Client:
+    ```bash
+    cd client
+    npm run dev
+    ```
